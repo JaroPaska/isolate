@@ -2,8 +2,7 @@ import langs
 import shutil
 import testutil
 
-JAVA = langs.Java()
-PYTHON = langs.Python()
+LANGS = {'java8': langs.Java(), 'python': langs.Python()}
 
 class TestSystem:
     def __init__(self):
@@ -50,5 +49,5 @@ if __name__ == '__main__':
     folders = ['sol-ok', 'sol-wa', 'sol-to', 'sol-re', 'sol-ce']
     tests = ['1000', '100000']
     for folder in folders:
-        print(ts.get_verdicts(JAVA, testutil.read_file(folder + '/Main.java'), testutil.get_all_tests('.')))
-        print(ts.get_verdicts(PYTHON, testutil.read_file(folder + '/main.py'), testutil.get_all_tests('.')))
+        print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_all_tests('.')))
+        print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_all_tests('.')))

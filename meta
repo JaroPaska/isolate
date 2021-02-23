@@ -1,8 +1,8 @@
-time:0.015
-time-wall:0.080
-max-rss:8568
+time:0.020
+time-wall:0.067
+max-rss:8532
 csw-voluntary:5
-csw-forced:0
+csw-forced:1
 exitcode:1
 status:RE
 message:Exited with error status 1

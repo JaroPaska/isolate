@@ -23,11 +23,11 @@ class TestSystem:
             return meta['status'], error
         return 'OK', output
     
-    def get_output(self, lang, source_code, test_input):
+    def get_outputs(self, lang, source_code, test_inputs):
         compile_error = self._prepare(lang, source_code)
         if compile_error != None:
             return 'CE', compile_error
-        return self._get_output(lang, test_input)
+        return [self._get_output(lang, test_input) for test_input in test_inputs]
 
     def _get_verdict(self, lang, test_input, test_output):
         verdict, details = self._get_output(lang, test_input)
@@ -48,7 +48,10 @@ if __name__ == '__main__':
     ts = TestSystem()
     folders = ['sol-ok', 'sol-wa', 'sol-to', 'sol-re', 'sol-ce']
     tests = ['1000', '100000']
+    '''
     print(testutil.get_sample_tests('.'))
     for folder in folders:
         print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_sample_tests('.')))
         print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_sample_tests('.')))
+    '''
+    print(ts.get_outputs(LANGS['java8'], testutil.read_file('sol-ok/Main.java'), (testutil.read_file(test_file + '.in') for test_file in testutil.get_sample_tests('.'))))

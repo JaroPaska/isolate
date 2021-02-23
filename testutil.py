@@ -18,6 +18,7 @@ def get_all_tests(folder):
             tests.append(folder + '/' + test_file[:-3])
     return tests
 
+
 def get_sample_tests(folder):
     return [test for test in get_all_tests(folder) if os.path.basename(test).startswith('sample_')]
 
@@ -30,3 +31,6 @@ def parse_meta(content):
         except:
             pass
     return meta
+
+def get_inputs(tests):
+    return (read_file(test + '.in') for test in tests)

@@ -54,4 +54,4 @@ if __name__ == '__main__':
         print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_sample_tests('.')))
         print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_sample_tests('.')))
     '''
-    print(ts.get_outputs(LANGS['java8'], testutil.read_file('sol-ok/Main.java'), (testutil.read_file(test_file + '.in') for test_file in testutil.get_sample_tests('.'))))
+    print(ts.get_outputs(LANGS['java8'], testutil.read_file('sol-ok/Main.java'), testutil.get_inputs(testutil.get_sample_tests('.'))))

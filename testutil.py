@@ -19,7 +19,7 @@ def get_all_tests(folder):
     return tests
 
 def get_sample_tests(folder):
-    return [test for test in get_all_tests(folder) if test.startswith('sample_')]
+    return [test for test in get_all_tests(folder) if os.path.basename(test).startswith('sample_')]
 
 def parse_meta(content):
     meta = dict()

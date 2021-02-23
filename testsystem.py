@@ -48,6 +48,7 @@ if __name__ == '__main__':
     ts = TestSystem()
     folders = ['sol-ok', 'sol-wa', 'sol-to', 'sol-re', 'sol-ce']
     tests = ['1000', '100000']
+    print(testutil.get_sample_tests('.'))
     for folder in folders:
-        print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_all_tests('.')))
-        print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_all_tests('.')))
+        print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_sample_tests('.')))
+        print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_sample_tests('.')))

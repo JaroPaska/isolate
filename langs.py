@@ -7,7 +7,7 @@ class Java:
         self.bin = '/usr/lib/jvm/java-11-openjdk-amd64/bin/'
 
     def _javac(self, java_file):
-        p = subprocess.Popen([self.bin + 'javac', '-cp', 'commons-io-2.8.0.jar', java_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen([self.bin + 'javac', '-cp', 'jars/*', java_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, error = p.communicate()
         return p.returncode, error.decode()
 

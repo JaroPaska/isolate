@@ -2,7 +2,7 @@ import langs
 import shutil
 import testutil
 
-LANGS = {'java8': langs.Java(), 'python': langs.Python()}
+LANGS = {'java8': langs.Java(), 'python': langs.Python(), 'javascript': langs.JavaScript()}
 
 class TestSystem:
     def __init__(self):
@@ -47,11 +47,8 @@ class TestSystem:
 if __name__ == '__main__':
     ts = TestSystem()
     folders = ['sol-ok', 'sol-wa', 'sol-to', 'sol-re', 'sol-ce']
-    tests = ['1000', '100000']
-    '''
-    print(testutil.get_sample_tests('.'))
+
     for folder in folders:
-        print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_sample_tests('.')))
-        print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_sample_tests('.')))
-    '''
-    print(ts.get_outputs(LANGS['java8'], testutil.read_file('sol-ok/Main.java'), testutil.get_inputs(testutil.get_sample_tests('.'))))
+        print(ts.get_verdicts(LANGS['java8'], testutil.read_file(folder + '/Main.java'), testutil.get_all_tests('.')))
+        print(ts.get_verdicts(LANGS['python'], testutil.read_file(folder + '/main.py'), testutil.get_all_tests('.')))
+        print(ts.get_verdicts(LANGS['javascript'], testutil.read_file(folder + '/main.js'), testutil.get_all_tests('.')))

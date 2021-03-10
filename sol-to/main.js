@@ -25,13 +25,12 @@ function readline() {
 function main() {
     var n = parseInt(readline())
     var spf = Array(n)
-    for (var i = 2; i < n; i++)
-        spf[i] = i
     for (var i = 2; i < n; i++) {
-        if (spf[i] < i)
-            continue;
-        for (var j = 2 * i; j < n; j += i)
-            spf[j] = Math.min(spf[j], i)
-        console.log(i)
+        var p = true;
+        for (var j = 2; j < i; j++)
+            if (i % j == 0)
+                p = false;
+        if (p)
+            console.log(i);
     }
 }
